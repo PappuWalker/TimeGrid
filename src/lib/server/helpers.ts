@@ -18,6 +18,11 @@ export function getWeekStart(weekEnding: Date): Date {
 	return d;
 }
 
+export function stripSeconds(time: string | null): string | null {
+	if (!time) return null;
+	return time.length > 5 ? time.substring(0, 5) : time;
+}
+
 export function computeDailyTotal(
 	morningLogin: string | null,
 	morningLogout: string | null,

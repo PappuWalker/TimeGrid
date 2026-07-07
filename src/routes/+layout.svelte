@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { enhance } from '$app/forms';
+	import { page } from '$app/stores';
 	let { children, data } = $props();
 </script>
 
@@ -13,9 +14,19 @@
 						<path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
 					</svg>
 				</div>
-				<span class="text-lg font-semibold text-slate-900">My Hours</span>
+				<span class="text-lg font-semibold text-slate-900">Time Grid</span>
 			</a>
 			{#if data.user}
+				<nav class="hidden sm:flex items-center gap-1">
+					<a
+						href="/"
+						class="px-3.5 py-1.5 text-sm font-medium rounded-lg transition-colors {$page.url.pathname === '/' ? 'text-indigo-600 bg-indigo-50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-100'}"
+					>Home</a>
+					<a
+						href="/calendar"
+						class="px-3.5 py-1.5 text-sm font-medium rounded-lg transition-colors {$page.url.pathname.startsWith('/calendar') ? 'text-indigo-600 bg-indigo-50' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-100'}"
+					>Calendar</a>
+				</nav>
 				<div class="flex items-center gap-3">
 					<div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center ring-2 ring-white">
 						<span class="text-xs font-semibold text-indigo-600">{data.user.email?.charAt(0).toUpperCase()}</span>

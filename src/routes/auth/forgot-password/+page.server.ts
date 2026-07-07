@@ -17,6 +17,6 @@ export const actions = {
 			return fail(400, { message: error.message, success: false });
 		}
 
-		return { message: 'Check your email for the reset link.', success: true };
+		return { message: 'Check your email for the reset link.', success: true, email };
 	}
 };
