@@ -36,7 +36,7 @@
 			const [loh, lom] = logout.split(':').map(Number);
 			return Math.max(0, loh * 60 + lom - (lh * 60 + lm));
 		};
-		return Math.max(0, seg(morningLogin, morningLogout) + seg(noonLogin, noonLogout) - breakDuration);
+		return Math.max(0, seg(morningLogin, morningLogout) + seg(noonLogin, noonLogout));
 	});
 
 	function formatHHMM(minutes: number): string {

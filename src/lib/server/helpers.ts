@@ -36,5 +36,5 @@ export function computeDailyTotal(
 
 	const morning = segMinutes(morningLogin, morningLogout);
 	const noon = segMinutes(noonLogin, noonLogout);
-	return Math.max(0, morning + noon - breakDuration);
+	return Math.max(0, morning + noon);
 }
